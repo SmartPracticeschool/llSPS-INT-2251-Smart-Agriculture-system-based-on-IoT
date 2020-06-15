@@ -1,0 +1,445 @@
+[
+    {
+        "id": "a668fd7d.aa3a2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b23e4262.a9e6d",
+        "type": "ibmiot in",
+        "z": "a668fd7d.aa3a2",
+        "authentication": "apiKey",
+        "apiKey": "d2074850.0994b8",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "999",
+        "applicationId": "",
+        "deviceType": "nodemcu",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 166.00001525878906,
+        "y": 360.9999933242798,
+        "wires": [
+            [
+                "9a851a5f.5932d8",
+                "fe42058d.cf63f8",
+                "b4c3a3a0.5458c",
+                "7b5d3a96.895bd4"
+            ]
+        ]
+    },
+    {
+        "id": "fe42058d.cf63f8",
+        "type": "debug",
+        "z": "a668fd7d.aa3a2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 626.0000152587891,
+        "y": 340.9999933242798,
+        "wires": []
+    },
+    {
+        "id": "9a851a5f.5932d8",
+        "type": "function",
+        "z": "a668fd7d.aa3a2",
+        "name": "temperature",
+        "func": "msg.payload=msg.payload.d.temperature\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 406.00001525878906,
+        "y": 280.9999933242798,
+        "wires": [
+            [
+                "fe42058d.cf63f8",
+                "99977370.0a23c"
+            ]
+        ]
+    },
+    {
+        "id": "b4c3a3a0.5458c",
+        "type": "function",
+        "z": "a668fd7d.aa3a2",
+        "name": "humidity",
+        "func": "msg.payload=msg.payload.d.humidity\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 396.00001525878906,
+        "y": 420.9999933242798,
+        "wires": [
+            [
+                "fe42058d.cf63f8",
+                "9b6cab6c.d56da8"
+            ]
+        ]
+    },
+    {
+        "id": "99977370.0a23c",
+        "type": "ui_gauge",
+        "z": "a668fd7d.aa3a2",
+        "name": "",
+        "group": "8b459643.4f1458",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": " ℃",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 606.0000152587891,
+        "y": 280.9999933242798,
+        "wires": []
+    },
+    {
+        "id": "9b6cab6c.d56da8",
+        "type": "ui_gauge",
+        "z": "a668fd7d.aa3a2",
+        "name": "",
+        "group": "cbe4752b.4bbb08",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 646.0000152587891,
+        "y": 420.9999933242798,
+        "wires": []
+    },
+    {
+        "id": "fabeb147.c1d04",
+        "type": "ibmiot out",
+        "z": "a668fd7d.aa3a2",
+        "authentication": "apiKey",
+        "apiKey": "d2074850.0994b8",
+        "outputType": "cmd",
+        "deviceId": "9999",
+        "deviceType": "iot9",
+        "eventCommandType": "home",
+        "format": "json",
+        "data": "data",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 656.0000152587891,
+        "y": 140.99999332427979,
+        "wires": []
+    },
+    {
+        "id": "3744b63f.a186aa",
+        "type": "ui_button",
+        "z": "a668fd7d.aa3a2",
+        "name": "",
+        "group": "e4c15960.31e678",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "motor on",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "green",
+        "icon": "",
+        "payload": "{\"command\":\"motorON\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 476.00001525878906,
+        "y": 80.99999332427979,
+        "wires": [
+            [
+                "fabeb147.c1d04",
+                "fe42058d.cf63f8",
+                "912f0a11.24f5c8"
+            ]
+        ]
+    },
+    {
+        "id": "3f4e77e6.28de58",
+        "type": "ui_button",
+        "z": "a668fd7d.aa3a2",
+        "name": "",
+        "group": "e4c15960.31e678",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "motor off",
+        "tooltip": "",
+        "color": "black",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "{\"command\":\"motorOFF\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 316.00001525878906,
+        "y": 200.99999332427979,
+        "wires": [
+            [
+                "fabeb147.c1d04",
+                "fe42058d.cf63f8",
+                "1651d0b0.6262ff"
+            ]
+        ]
+    },
+    {
+        "id": "369e561f.bf59ca",
+        "type": "ui_gauge",
+        "z": "a668fd7d.aa3a2",
+        "name": "",
+        "group": "d626078e.238048",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 650,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7b5d3a96.895bd4",
+        "type": "function",
+        "z": "a668fd7d.aa3a2",
+        "name": "soil moisture",
+        "func": "msg.payload=msg.payload.d.objectTemp\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "369e561f.bf59ca"
+            ]
+        ]
+    },
+    {
+        "id": "912f0a11.24f5c8",
+        "type": "ui_toast",
+        "z": "a668fd7d.aa3a2",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "topic": "motor is ON",
+        "name": "",
+        "x": 646.0000152587891,
+        "y": 100.99999332427979,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1651d0b0.6262ff",
+        "type": "ui_toast",
+        "z": "a668fd7d.aa3a2",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "topic": "motor is OFF",
+        "name": "",
+        "x": 646.0000152587891,
+        "y": 220.99999332427979,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fcdb7753.d87518",
+        "type": "ui_media",
+        "z": "a668fd7d.aa3a2",
+        "group": "a06be31c.00e7c",
+        "name": "",
+        "width": 0,
+        "height": 0,
+        "order": 0,
+        "category": "SS",
+        "file": "SS.png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3088b40f.2fb0dc",
+        "type": "ui_media",
+        "z": "a668fd7d.aa3a2",
+        "group": "e4c15960.31e678",
+        "name": "",
+        "width": 0,
+        "height": 0,
+        "order": 2,
+        "category": "bo",
+        "file": "bo.png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2074850.0994b8",
+        "type": "ibmiot",
+        "z": "",
+        "name": "ss",
+        "keepalive": "60",
+        "serverName": "z65ech.messaging.internetofthings.ibmcloud.com",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "8b459643.4f1458",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperature",
+        "tab": "c4cd0bc8.527d68",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "cbe4752b.4bbb08",
+        "type": "ui_group",
+        "z": "",
+        "name": "humidity",
+        "tab": "c4cd0bc8.527d68",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e4c15960.31e678",
+        "type": "ui_group",
+        "z": "",
+        "name": "motor control",
+        "tab": "56820df0.83fef4",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d626078e.238048",
+        "type": "ui_group",
+        "z": "",
+        "name": "soil moisture",
+        "tab": "c4cd0bc8.527d68",
+        "order": 3,
+        "disp": true,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "a06be31c.00e7c",
+        "type": "ui_group",
+        "z": "",
+        "name": "",
+        "tab": "dae5e1b8.a74ee",
+        "order": 2,
+        "disp": true,
+        "width": "14",
+        "collapse": false
+    },
+    {
+        "id": "c4cd0bc8.527d68",
+        "type": "ui_tab",
+        "z": "",
+        "name": "weather conditions",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "56820df0.83fef4",
+        "type": "ui_tab",
+        "z": "",
+        "name": "motor control",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "dae5e1b8.a74ee",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Smart Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
