@@ -6,10 +6,10 @@ import paho.mqtt.client as paho
 
 #Provide your IBM Watson Device Credentials
 organization = "z65ech" #replace the ORG ID
-deviceType = "nodemcu"#replace the Device type wi
-deviceId = "999"#replace Device ID
+deviceType = "iot9"#replace the Device type wi
+deviceId = "9999"#replace Device ID
 authMethod = "token"
-authToken = "2sLAX!5ql-P&WynB6@" #Replace the authtoken
+authToken = "aSp!zUyWVZxTUMCO1F" 
 
 def myCommandCallback(cmd): # function for Callback
         print("Command received: %s" % cmd.data)
