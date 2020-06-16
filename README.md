@@ -7,3 +7,7 @@ https://drive.google.com/file/d/1FhQ2SvrDz9_AhoABTPCo4NoOjd53hqJ3/view
 
 YOUTUBE DEMO LINK
 https://www.youtube.com/channel/UCdDzZdDKfhfuGeZNrVl-Ujg
+
+
+FEEDBACK LINK
+https://drive.google.com/file/d/1B-gupmydgZycZV5X1uviQvrr715CsEdD/view
